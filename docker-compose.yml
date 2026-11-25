@@ -1,0 +1,12 @@
+services:
+    octil-api:
+        image: gradle:9.9.2-jdk17-alpine
+        container_name: octil-api
+        hostname: octil-api
+        ports:
+            - 8080:8080
+        working_dir: /home/gradle/app
+        user: 1000:1000
+        volumes:
+            - './:/home/gradle/app'
+        command: ['gradle', 'bootRun', '--project-cache-dir=/tmp/cache']
